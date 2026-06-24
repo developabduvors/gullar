@@ -12,5 +12,8 @@ router.use('/auth', require('./auth.route'));
 router.use('/flowers', require('./flower.route'));
 router.use('/search', require('./search.route'));
 router.use('/favorites', require('./favorite.route'));
+router.use('/orders', require('./order.route'));
+router.use('/me', require('./me.route'));
+router.use('/events', require('./event.route'));
 
 module.exports = router;
