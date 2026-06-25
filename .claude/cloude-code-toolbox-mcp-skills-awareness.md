@@ -1,6 +1,6 @@
 # Cloude Code ToolBox — MCP & Skills awareness
 
-_Generated: 2026-06-24T15:58:43.802Z_
+_Generated: 2026-06-25T10:20:37.624Z_
 
 ## How to use this report
 
@@ -15,7 +15,7 @@ _Generated: 2026-06-24T15:58:43.802Z_
 
 Workspace `mcp.json` _(folder: gullar)_
 
-- **c:\Users\user\gullar\.mcp.json** — _File missing_
+- **c:\Users\user\Desktop\gullar\.mcp.json** — _File missing_
 
 _No active workspace servers in mcp.json._
 
