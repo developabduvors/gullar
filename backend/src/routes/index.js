@@ -12,8 +12,11 @@ router.use('/auth', require('./auth.route'));
 router.use('/flowers', require('./flower.route'));
 router.use('/search', require('./search.route'));
 router.use('/favorites', require('./favorite.route'));
+router.use('/cart', require('./cart.route'));
 router.use('/orders', require('./order.route'));
 router.use('/me', require('./me.route'));
 router.use('/events', require('./event.route'));
+router.use('/subscriptions', require('./subscription.route'));
+router.use('/admin/reviews', require('./review.route'));
 
 module.exports = router;

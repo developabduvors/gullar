@@ -18,6 +18,8 @@ function create(data) {
     images: Array.isArray(data.images) ? data.images : [],
     colors,
     combo: buildCombo(colors), // avto rang-filtr tagi
+    express: Boolean(data.express),                                  // "Tezkor Buket" (10)
+    prepMinutes: data.express ? (Number(data.prepMinutes) || 15) : null,
   });
 }
 
@@ -73,6 +75,25 @@ function list(query = {}) {
   return { items: items.slice(start, start + limit), total, page, limit, pages: Math.ceil(total / limit) };
 }
 
+// --- "Tezkor Buket" (10): darhol yuboriladigan tayyor buketlar (taymer bilan) ---
+function listExpress() {
+  return store
+    .all()
+    .filter((f) => !f.archived && f.express)
+    .sort((a, b) => b.id - a.id)
+    .map((f) => ({ ...f, prepMinutes: f.prepMinutes || 15 }));
+}
+
+// Gulni express qilish / bekor qilish (admin)
+function setExpress(id, data = {}) {
+  getById(id); // yo'q bo'lsa 404
+  const express = Boolean(data.express);
+  const prepMinutes = express
+    ? (Number(data.prepMinutes) > 0 ? Math.floor(Number(data.prepMinutes)) : 15)
+    : null;
+  return store.update(id, { express, prepMinutes });
+}
+
 // --- Dinamik filtrlar: mavjud ranglar va combo'lar (frontend filtr UI uchun) ---
 function filters() {
   const active = store.all().filter((f) => !f.archived);
@@ -89,4 +110,4 @@ function filters() {
   };
 }
 
-module.exports = { create, getById, update, setArchived, list, filters };
+module.exports = { create, getById, update, setArchived, list, filters, listExpress, setExpress };

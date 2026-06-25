@@ -15,6 +15,8 @@ const env = {
   reminderDays: Number(process.env.REMINDER_DAYS) || 3,
   // Cron jadvali (default: har kuni soat 03:00) va vaqt mintaqasi
   reminderCron: process.env.REMINDER_CRON || '0 3 * * *',
+  // Obuna (subscription) yetkazishlarini skaner qilish jadvali (default: har kuni 04:00)
+  subscriptionCron: process.env.SUBSCRIPTION_CRON || '0 4 * * *',
   timezone: process.env.TZ || 'Asia/Tashkent',
   // Shu raqamlar bilan kirgan user avtomatik admin bo'ladi
   adminPhones: (process.env.ADMIN_PHONES || '')
