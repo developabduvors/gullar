@@ -10,8 +10,19 @@ async function filters(req, res) {
   res.json({ success: true, data: flowerService.filters() });
 }
 
+// GET /flowers/express — tezkor (15 daq) tayyor buketlar
+async function express(req, res) {
+  res.json({ success: true, data: flowerService.listExpress() });
+}
+
 async function getOne(req, res) {
   res.json({ success: true, data: flowerService.getById(req.params.id) });
+}
+
+// PATCH /flowers/:id/express (admin) — body: { express, prepMinutes? }
+async function setExpress(req, res) {
+  const flower = flowerService.setExpress(req.params.id, req.body);
+  res.json({ success: true, message: flower.express ? 'Tezkor buket yoqildi' : "Tezkor buket o'chirildi", data: flower });
 }
 
 async function create(req, res) {
@@ -31,4 +42,4 @@ async function archive(req, res) {
   res.json({ success: true, message: archived ? 'Arxivlandi' : 'Qaytarildi', data: flower });
 }
 
-module.exports = { list, filters, getOne, create, update, archive };
+module.exports = { list, filters, express, getOne, create, update, archive, setExpress };
