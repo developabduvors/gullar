@@ -3,14 +3,15 @@ export function cn(...inputs: (string | undefined | null | false)[]): string {
   return inputs.filter(Boolean).join(" ");
 }
 
-/* ── Price formatting ── */
-export function formatPrice(price: number, currency: string = "UZS"): string {
-  return new Intl.NumberFormat("uz-UZ", {
-    style: "currency",
-    currency,
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(price);
+/* ── Price formatting ──
+   Intl currency formatting ICU/CLDR ma'lumotlariga bog'liq bo'lib,
+   Node (server) va brauzer (client)da har xil natija beradi → hydration xatosi.
+   Shuning uchun probel bilan ajratib, qo'lda deterministik formatlash. */
+export function formatPrice(price: number, currency: string = "soʻm"): string {
+  const grouped = Math.round(price)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  return `${grouped} ${currency}`;
 }
 
 /* ── Date formatting ── */
