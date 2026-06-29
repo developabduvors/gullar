@@ -1,0 +1,1 @@
+{/* MapPicker — интерактивная карта (Mapbox GL / Yandex) для выбора адреса доставки (Qudrat) */}

@@ -1,0 +1,1 @@
+{/* PriceRangeSlider — двойной ползунок цен (double thumb) для фильтра каталога (Hayot) */}
