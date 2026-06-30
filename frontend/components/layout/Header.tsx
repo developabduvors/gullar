@@ -20,6 +20,7 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { SearchOverlay } from "@/components/molecules/SearchOverlay";
 import { useLanguage, type Language } from "@/hooks/useLanguage";
+import { useScrollDirection } from "@/hooks/useScrollDirection";
 
 const LANGUAGES: { code: Language; label: string; flag: string }[] = [
   { code: "uz", label: "O‘zbek", flag: "🇺🇿" },
@@ -66,10 +67,12 @@ export function Header({
   }, []);
 
   const currentLang = LANGUAGES.find((l) => l.code === language) || LANGUAGES[0];
+  const scrollDirection = useScrollDirection();
+  const isHeaderHidden = scrollDirection === "down";
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-50 bg-[#0A0A0A]/80 backdrop-blur-md border-b border-white/5">
+      <header className={cn("fixed top-0 left-0 w-full z-50 bg-[#0A0A0A]/80 backdrop-blur-md border-b border-white/5", "transition-transform duration-[400ms] ease-in-out", isHeaderHidden && "-translate-y-full")}>
         <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-8 lg:px-12">
           {/* Logo */}
           <Link

@@ -91,7 +91,8 @@ export function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Gullarni qidirish..."
-                  className="w-full pl-11 pr-10 py-3.5 rounded-2xl bg-white/5 border border-white/10 text-zinc-100 text-sm font-light tracking-wide placeholder:text-zinc-500 focus:outline-none focus:border-white/20 transition-colors"
+                  className="w-full pl-11 pr-10 py-3.5 rounded-2xl bg-white/5 border-[6px] border-white/10 text-zinc-100 text-sm font-light tracking-wide placeholder:text-zinc-500 focus:outline-none focus:border-white/10 transition-colors"
+                  autoFocus
                 />
                 <button
                   onClick={onClose}

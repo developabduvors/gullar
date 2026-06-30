@@ -5,7 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { Flower2, Sparkles } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/molecules/Footer";
-import { ProductCard } from "@/components/molecules/ProductCard";
+import { FlowerCard } from "@/components/molecules/FlowerCard";
 import { Badge } from "@/components/ui/Badge";
 import { FLOWERS } from "@/lib/flowers-data";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -119,7 +119,7 @@ export default function CatalogPage() {
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10">
               {filteredFlowers.map((flower) => (
-                <ProductCard
+                <FlowerCard
                   key={flower.id}
                   flower={flower}
                   isInWishlist={favorites.isFavorite(flower.id)}

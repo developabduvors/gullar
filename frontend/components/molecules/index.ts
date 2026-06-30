@@ -1,5 +1,5 @@
 export { Footer } from "./Footer";
 export { SearchBar } from "./SearchBar";
-export { ProductCard } from "./ProductCard";
+export { FlowerCard } from "./FlowerCard";
 export { CountdownTimer } from "./CountdownTimer";
 export { OTPForm } from "./OTPForm";

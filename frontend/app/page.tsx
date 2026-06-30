@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-const page = () => {
-  return (
-    <div>
-      Hellooooo boys
-    </div>
-  )
-=======
 "use client";
 
 import { useState } from "react";
@@ -23,10 +13,10 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/molecules/Footer";
-import { ProductCard } from "@/components/molecules/ProductCard";
+import { FlowerCard } from "@/components/molecules/FlowerCard";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { ProductCardSkeleton } from "@/components/ui/Skeleton";
+import { FlowerCardSkeleton } from "@/components/ui/Skeleton";
 import { WhyChooseUs } from "@/components/organisms/WhyChooseUs";
 import { ROUTES, BRAND } from "@/lib/constants";
 import { FLOWERS } from "@/lib/flowers-data";
@@ -49,7 +39,7 @@ export default function HomePage() {
 
       <main className="flex-1">
         {/* ── Hero Section — Prestige Gallery Luxury ── */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden -mt-20 pt-20">
           {/* HD floral background */}
           <div className="absolute inset-0">
             <Image
@@ -127,13 +117,13 @@ export default function HomePage() {
             {isLoading ? (
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <ProductCardSkeleton key={i} />
+                  <FlowerCardSkeleton key={i} />
                 ))}
               </div>
             ) : (
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                 {FLOWERS.map((flower) => (
-                  <ProductCard
+                  <FlowerCard
                     key={flower.id}
                     flower={flower}
                     priority={flower.id === "flower-1"}
@@ -208,7 +198,6 @@ export default function HomePage() {
       <Footer />
     </>
   );
->>>>>>> f05692bfa6b8f3ff46541950302695d7eecfd947
+
 }
 
-export default page

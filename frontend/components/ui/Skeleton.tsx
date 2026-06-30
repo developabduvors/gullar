@@ -33,17 +33,13 @@ export function Skeleton({
   );
 }
 
-export function ProductCardSkeleton() {
+export function FlowerCardSkeleton() {
   return (
-    <div className="rounded-2xl overflow-hidden border border-border bg-card">
-      <Skeleton variant="rectangular" className="aspect-[4/5] w-full !rounded-none" />
-      <div className="p-4 space-y-3">
-        <Skeleton className="h-4 w-3/4" />
-        <Skeleton className="h-3 w-1/2" />
-        <div className="flex items-center justify-between pt-2">
-          <Skeleton className="h-5 w-20" />
-          <Skeleton variant="circular" className="h-8 w-8" />
-        </div>
+    <div className="rounded-[28px] overflow-hidden bg-[#1B1717] shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
+      <Skeleton variant="rectangular" className="aspect-[3/4] w-full !rounded-none !bg-[#2A2522]" />
+      <div className="p-5 pt-4 space-y-3">
+        <Skeleton className="h-5 w-2/3 !bg-white/5" />
+        <Skeleton className="h-6 w-1/3 !bg-white/5" />
       </div>
     </div>
   );

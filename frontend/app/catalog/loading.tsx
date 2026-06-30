@@ -1,6 +1,6 @@
 "use client";
 
-import { Skeleton, ProductCardSkeleton } from "@/components/ui/Skeleton";
+import { Skeleton, FlowerCardSkeleton } from "@/components/ui/Skeleton";
 
 export default function CatalogLoading() {
   return (
@@ -17,7 +17,7 @@ export default function CatalogLoading() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {Array.from({ length: 12 }).map((_, i) => (
-            <ProductCardSkeleton key={i} />
+            <FlowerCardSkeleton key={i} />
           ))}
         </div>
       </div>
