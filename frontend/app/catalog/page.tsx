@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Flower2, Sparkles } from "lucide-react";
 import { Header } from "@/components/layout/Header";
@@ -34,19 +34,9 @@ export default function CatalogPage() {
   const cart = useCart();
   const favorites = useFavorites();
 
-  const [activeCategory, setActiveCategory] = useState(
-    searchParams.get("category") || "all"
-  );
-
-  useEffect(() => {
-    const categoryParam = searchParams.get("category");
-    if (categoryParam && categoryParam !== activeCategory) {
-      setActiveCategory(categoryParam);
-    }
-  }, [searchParams]);
+  const activeCategory = searchParams.get("category") || "all";
 
   const handleCategoryChange = (categoryId: string) => {
-    setActiveCategory(categoryId);
     const params = new URLSearchParams(searchParams.toString());
     if (categoryId === "all") {
       params.delete("category");
