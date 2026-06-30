@@ -4,6 +4,7 @@ import {
   createContext,
   useContext,
   useState,
+  useEffect,
   useCallback,
   createElement,
   type ReactNode,
@@ -347,13 +348,16 @@ const LanguageContext = createContext<LanguageContextType>({
 });
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("prestige_lang") as Language | null;
-      if (saved && (saved === "uz" || saved === "ru")) return saved;
+  // Server va client'ning birinchi render'i bir xil bo'lishi shart (hydration).
+  // Shuning uchun doim "uz" dan boshlaymiz, localStorage'ni esa mount'dan keyin o'qiymiz.
+  const [language, setLanguage] = useState<Language>("uz");
+
+  useEffect(() => {
+    const saved = localStorage.getItem("prestige_lang") as Language | null;
+    if (saved === "uz" || saved === "ru") {
+      setLanguage(saved);
     }
-    return "uz";
-  });
+  }, []);
 
   const handleSetLanguage = useCallback((lang: Language) => {
     setLanguage(lang);
