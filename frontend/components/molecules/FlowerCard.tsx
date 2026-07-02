@@ -125,7 +125,14 @@ export function FlowerCard({
       )}
 
       {/* ── Bottom Content Section (overlay on image) ── */}
-      <div className="absolute bottom-0 left-0 right-0 px-5 pb-5 pt-8 bg-gradient-to-t from-black/80 via-black/50 to-transparent backdrop-blur-sm">
+      <div
+        className={cn(
+          "absolute bottom-0 left-0 right-0 px-5 pb-5 pt-8",
+          "bg-gradient-to-t from-black/80 via-black/50 to-transparent backdrop-blur-sm",
+          "transition-transform duration-500 ease-out will-change-transform",
+          "sm:translate-y-full sm:group-hover:translate-y-0"
+        )}
+      >
         {/* Product Name */}
         <h3 className="font-serif text-white text-base sm:text-lg font-medium leading-tight truncate pr-14">
           {flower.name}
