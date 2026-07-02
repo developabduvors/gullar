@@ -73,7 +73,7 @@ export function Header({
   return (
     <>
       <header className={cn("fixed top-0 left-0 w-full z-50 bg-[#0A0A0A]/80 backdrop-blur-md border-b border-white/5", "transition-transform duration-[400ms] ease-in-out", isHeaderHidden && "-translate-y-full")}>
-        <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-8 lg:px-12">
+        <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-12 lg:px-16">
           {/* Logo */}
           <Link
             href={ROUTES.HOME}
@@ -94,7 +94,7 @@ export function Header({
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden lg:flex items-center">
             <ul className="flex gap-6 lg:gap-8">
               {NAV_LINKS.map((link) =>
                 link.external ? (

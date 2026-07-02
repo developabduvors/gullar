@@ -74,7 +74,7 @@ export default function HomePage() {
               <div className="w-16 h-px bg-yellow-600/40" />
 
               {/* CTA — dark coffee bg for readability */}
-              <div className="pt-4">
+              <div className="pt-4 ">
                 <Link
                   href={ROUTES.CATALOG}
                   className="inline-block bg-[#3a3842a2] px-12 py-4 text-sm uppercase tracking-widest text-[#ffffff] font-light hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(234,179,8,0.25)] hover:bg-[#311b12] transition-all duration-500 "
